@@ -159,13 +159,6 @@
             border: 1px solid #000;
         }
         
-        .hero-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-        
         .btn {
             display: inline-block;
             padding: 0.75rem 1.5rem;
@@ -498,7 +491,7 @@
                 <a href="./reports.html" class="btn">View Reports</a>
             </div>
             <div class="hero-image">
-                <img src="images/uploads/remittances_pct_gdp_comparison.png" alt="Remittances Comparison">
+                [Featured Image]
             </div>
         </div>
     </section>
@@ -510,7 +503,7 @@
             <div class="reports-grid">
                 <!-- Report 1 -->
                 <div class="report-card">
-                    <div class="report-image" style="background-image: url('images/uploads/remittances_pct_gdp_comparison.png'); background-size: cover; background-position: center;"></div>
+                    <div class="report-image" style="background-color: #D4D4D0;"></div>
                     <div class="report-content">
                         <div class="report-meta">May 15, 2025 • Economic Analysis</div>
                         <h3 class="report-title">Economic Impact of Remittance Tax on Central America</h3>
@@ -600,57 +593,57 @@
     <!-- Footer -->
     <footer>
         <div class="container footer-container">
+            <div>
+                <div class="footer-logo">
+                    <img src="./logo.png" alt="Ancla Analítica">
+                </div>
+                <p class="footer-about">Ancla Analítica provides in-depth economic and political analysis, making complex information accessible across multiple platforms.</p>
+                <ul class="social-links">
+                    <li><a href="#">T</a></li>
                     <li><a href="#">L</a></li>
                     <li><a href="#">F</a></li>
-                    <li><a href="#">Y</a></li>"Ancla Analítica">
-                </ul>>
-            </div> class="footer-about">Ancla Analítica provides in-depth economic and political analysis, making complex information accessible across multiple platforms.</p>
-            <div>ul class="social-links">
+                    <li><a href="#">Y</a></li>
+                </ul>
+            </div>
+            <div>
                 <h3 class="footer-title">Quick Links</h3>
-                <ul class="footer-links"></li>
+                <ul class="footer-links">
                     <li><a href="./index.html">Home</a></li>
                     <li><a href="./reports.html">Reports</a></li>
                     <li><a href="./media.html">Media</a></li>
                     <li><a href="./about.html">About</a></li>
                     <li><a href="./contact.html">Contact</a></li>
-                </ul>lass="footer-title">Quick Links</h3>
-            </div>l class="footer-links">
-            <div>   <li><a href="./index.html">Home</a></li>
-                <h3 class="footer-title">Report Categories</h3>i>
-                <ul class="footer-links">html">Media</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer-title">Report Categories</h3>
+                <ul class="footer-links">
                     <li><a href="#">Economic Analysis</a></li>
-                    <li><a href="#">Political Trends</a></li>/li>
+                    <li><a href="#">Political Trends</a></li>
                     <li><a href="#">Regional Studies</a></li>
                     <li><a href="#">Policy Evaluation</a></li>
                     <li><a href="#">Market Reports</a></li>
-                </ul>lass="footer-title">Report Categories</h3>
-            </div>l class="footer-links">
-        </div>      <li><a href="#">Economic Analysis</a></li>
-        <div class="copyright">="#">Political Trends</a></li>
-            <div class="container">>Regional Studies</a></li>
-                <p>&copy; 2025 Ancla Analítica. All rights reserved.</p>
-            </div>  <li><a href="#">Market Reports</a></li>
-        </div>  </ul>
-    </footer>/div>
+                </ul>
+            </div>
         </div>
-    <script> class="copyright">
+        <div class="copyright">
+            <div class="container">
+                <p>&copy; 2025 Ancla Analítica. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
         document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
-            document.querySelector('nav').classList.toggle('active');/p>
-        }); </div>
-    </script>>
-    <script>>
+            document.querySelector('nav').classList.toggle('active');
+        });
+    </script>
+    <script>
       if (window.netlifyIdentity ) {
         window.netlifyIdentity.on("init", user => {
-          if (!user) {Selector('.mobile-menu-toggle').addEventListener('click', function() {
-            window.netlifyIdentity.on("login", () => {ggle('active');
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
               document.location.href = "/admin/";
-            });
-          }>
-        });indow.netlifyIdentity ) {
-      } window.netlifyIdentity.on("init", user => {
-    </script>(!user) {
-</body>     window.netlifyIdentity.on("login", () => {
-</html>       document.location.href = "/admin/";
             });
           }
         });
