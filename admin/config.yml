@@ -1,0 +1,49 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Media folder where uploaded images will be saved
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+# Collections define the structure for content types
+collections:
+  - name: "reports"
+    label: "Reports"
+    folder: "_reports"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Category", name: "category", widget: "select", options: ["Economic Analysis", "Political Trends", "Regional Studies", "Policy Evaluation", "Market Reports"]}
+      - {label: "Featured Image", name: "thumbnail", widget: "image", required: false}
+      - {label: "Summary", name: "summary", widget: "text"}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Featured Report", name: "featured", widget: "boolean", default: false}
+
+  - name: "media"
+    label: "Media"
+    folder: "_media"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Media Type", name: "type", widget: "select", options: ["Video", "Podcast", "Infographic", "Presentation"]}
+      - {label: "Thumbnail", name: "thumbnail", widget: "image", required: false}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "URL or Embed Code", name: "url", widget: "string"}
+      - {label: "Featured Media", name: "featured", widget: "boolean", default: false}
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "homepage"
+        label: "Homepage Content"
+        file: "_data/homepage.json"
+        fields:
+          - {label: "Hero Title", name: "hero_title", widget: "string"}
+          - {label: "Hero Description", name: "hero_description", widget: "text"}
+          - {label: "About Section Title", name: "about_title", widget: "string"}
+          - {label: "About Section Text", name: "about_text", widget: "text"}
