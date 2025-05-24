@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ancla Analítica - Economic and Political Analysis</title>
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-dark: #000000;
+            --primary-light: #F5F5F0;
+            --accent: #D4D4D0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--primary-dark);
+            background-color: var(--primary-light);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 2.25rem;
+            line-height: 2.875rem;
+        }
+        
+        h2 {
+            font-size: 1.75rem;
+            line-height: 2.375rem;
+        }
+        
+        h3 {
+            font-size: 1.375rem;
+            line-height: 2rem;
+            font-weight: 600;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            transition: all 0.2s ease-out;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        /* Header */
+        header {
+            background-color: #fff;
+            border-bottom: 1px solid #000;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 1rem;
+        }
+        
+        .logo-text {
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+        }
+        
+        nav ul li a {
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            letter-spacing: 0.5px;
+        }
+        
+        nav ul li a.active {
+            text-decoration: underline;
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 10rem 0 6rem;
+            background-color: #fff;
+            border-bottom: 1px solid #000;
+        }
+        
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .hero-content h1 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-content p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-image {
+            height: 400px;
+            background-color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #000;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary-dark);
+            color: #fff;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            border-radius: 0;
+            transition: all 0.2s ease-out;
+        }
+        
+        .btn:hover {
+            opacity: 0.9;
+            text-decoration: none;
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 1px solid var(--primary-dark);
+            color: var(--primary-dark);
+        }
+        
+        /* Featured Reports */
+        .featured-reports {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .reports-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
+        .report-card {
+            background-color: #fff;
+            border: 1px solid #000;
+            overflow: hidden;
+            transition: all 0.2s ease-out;
+        }
+        
+        .report-card:hover {
+            opacity: 0.9;
+        }
+        
+        .report-image {
+            height: 200px;
+            background-color: var(--accent);
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .report-content {
+            padding: 1.5rem;
+        }
+        
+        .report-meta {
+            font-size: 0.875rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        
+        .report-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .report-excerpt {
+            margin-bottom: 1rem;
+            font-size: 0.9375rem;
+        }
+        
+        .view-all {
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        /* About Section */
+        .about-section {
+            padding: 4rem 0;
+            background-color: #fff;
+            border-top: 1px solid #000;
+            border-bottom: 1px solid #000;
+        }
+        
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-image {
+            height: 400px;
+            background-color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #000;
+        }
+        
+        .about-content h2 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Media Section */
+        .media-section {
+            padding: 4rem 0;
+        }
+        
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        
+        .media-card {
+            background-color: #fff;
+            border: 1px solid #000;
+            overflow: hidden;
+        }
+        
+        .media-image {
+            height: 250px;
+            background-color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .media-content {
+            padding: 1.5rem;
+        }
+        
+        .media-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .media-meta {
+            font-size: 0.875rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #fff;
+            padding: 3rem 0;
+            border-top: 1px solid #000;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        .footer-logo {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-logo img {
+            height: 40px;
+        }
+        
+        .footer-about {
+            margin-bottom: 1rem;
+            font-size: 0.9375rem;
+        }
+        
+        .footer-title {
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links a {
+            font-size: 0.9375rem;
+        }
+        
+        .social-links {
+            display: flex;
+            list-style: none;
+            margin-top: 1rem;
+        }
+        
+        .social-links li {
+            margin-right: 1rem;
+        }
+        
+        .social-links a {
+            font-size: 1.25rem;
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.875rem;
+            color: #666;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1023px) {
+            .header-container {
+                height: 64px;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                display: none; /* Hide by default */
+                position: absolute;
+                top: 64px;
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                padding: 1rem 0;
+                border-bottom: 1px solid #000;
+                z-index: 99;
+            }
+            
+            nav.active {
+                display: block; /* Show when active */
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 0;
+                padding: 0.5rem 1.5rem;
+            }
+            
+            .hero-container,
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-image,
+            .about-image {
+                height: 300px;
+                order: -1;
+            }
+            
+            .reports-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            h1 {
+                font-size: 1.875rem;
+                line-height: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+                line-height: 2rem;
+            }
+            
+            .hero {
+                padding: 8rem 0 4rem;
+            }
+            
+            .reports-grid,
+            .media-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="./logo.png" alt="Ancla Analítica">
+                </a>
+                <span class="logo-text">ANCLA ANALÍTICA</span>
+            </div>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars">≡</i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="./index.html" class="active">HOME</a></li>
+                    <li><a href="./reports.html">REPORTS</a></li>
+                    <li><a href="./media.html">MEDIA</a></li>
+                    <li><a href="./about.html">ABOUT</a></li>
+                    <li><a href="./contact.html">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1 id="hero-title">Making Economic & Political Analysis Accessible</h1>
+                <p id="hero-description">Ancla Analítica provides in-depth research and analysis on economic and political trends, making complex information accessible to the general public.</p>
+                <a href="./reports.html" class="btn">View Reports</a>
+            </div>
+            <div class="hero-image">
+                [Featured Image]
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Reports -->
+    <section class="featured-reports">
+        <div class="container">
+            <h2 class="section-title">Featured Reports</h2>
+            <div class="reports-grid" id="featured-reports-container">
+                <!-- Report cards will be dynamically inserted here -->
+                
+                <!-- Default/Fallback Report 1 -->
+                <div class="report-card">
+                    <div class="report-image" style="background-color: #D4D4D0;"></div>
+                    <div class="report-content">
+                        <div class="report-meta">May 15, 2025 • Economic Analysis</div>
+                        <h3 class="report-title">Economic Impact of Remittance Tax on Central America</h3>
+                        <p class="report-excerpt">Analysis of how proposed remittance taxes would affect Guatemala and other Central American economies.</p>
+                        <a href="./report-example.html" class="btn btn-secondary">Read Report</a>
+                    </div>
+                </div>
+                
+                <!-- Default/Fallback Report 2 -->
+                <div class="report-card">
+                    <div class="report-image" style="background-color: #D4D4D0;"></div>
+                    <div class="report-content">
+                        <div class="report-meta">April 28, 2025 • Political Trends</div>
+                        <h3 class="report-title">Trade Policy Shifts in Latin America</h3>
+                        <p class="report-excerpt">Examining recent changes in regional trade agreements and their economic implications.</p>
+                        <a href="#" class="btn btn-secondary">Read Report</a>
+                    </div>
+                </div>
+                
+                <!-- Default/Fallback Report 3 -->
+                <div class="report-card">
+                    <div class="report-image" style="background-color: #D4D4D0;"></div>
+                    <div class="report-content">
+                        <div class="report-meta">April 10, 2025 • Market Reports</div>
+                        <h3 class="report-title">Inflation Trends in Emerging Markets</h3>
+                        <p class="report-excerpt">Analysis of current inflation patterns and their impact on economic stability.</p>
+                        <a href="#" class="btn btn-secondary">Read Report</a>
+                    </div>
+                </div>
+            </div>
+            <div class="view-all">
+                <a href="./reports.html" class="btn">View All Reports</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container about-container">
+            <div class="about-content">
+                <h2 id="about-title">About Ancla Analítica</h2>
+                <div id="about-text">
+                    <p>Like an anchor that provides stability in turbulent waters, Ancla Analítica aims to be a reliable source of analysis in an increasingly complex global landscape.</p>
+                    <p>We combine rigorous research methodology with clear communication, translating complex economic and political analyses into formats that are accessible to non-specialists.</p>
+                </div>
+                <a href="./about.html" class="btn btn-secondary">Learn More</a>
+            </div>
+            <div class="about-image">
+                [About Image]
+            </div>
+        </div>
+    </section>
+
+    <!-- Media Section -->
+    <section class="media-section">
+        <div class="container">
+            <h2 class="section-title">Featured Media</h2>
+            <div class="media-grid" id="featured-media-container">
+                <!-- Media cards will be dynamically inserted here -->
+                
+                <!-- Default/Fallback Media 1 -->
+                <div class="media-card">
+                    <div class="media-image">
+                        [Video Thumbnail]
+                    </div>
+                    <div class="media-content">
+                        <div class="media-meta">May 18, 2025 • Video</div>
+                        <h3 class="media-title">Understanding Remittance Economics</h3>
+                        <a href="#" class="btn btn-secondary">Watch Video →</a>
+                    </div>
+                </div>
+                
+                <!-- Default/Fallback Media 2 -->
+                <div class="media-card">
+                    <div class="media-image">
+                        [Video Thumbnail]
+                    </div>
+                    <div class="media-content">
+                        <div class="media-meta">May 5, 2025 • Video</div>
+                        <h3 class="media-title">Trade Policy Explained</h3>
+                        <a href="#" class="btn btn-secondary">Watch Video →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="view-all">
+                <a href="./media.html" class="btn">View All Media</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                © 2025 Ancla Analítica. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Load homepage content
+        fetch('./_data/homepage.json')
+            .then(response => response.json())
+            .then(data => {
+                // Only update if elements exist and data is available
+                if (data.hero_title && document.getElementById('hero-title')) {
+                    document.getElementById('hero-title').textContent = data.hero_title;
+                }
+                if (data.hero_description && document.getElementById('hero-description')) {
+                    document.getElementById('hero-description').textContent = data.hero_description;
+                }
+                if (data.about_title && document.getElementById('about-title')) {
+                    document.getElementById('about-title').textContent = data.about_title;
+                }
+                if (data.about_text && document.getElementById('about-text')) {
+                    const aboutText = document.getElementById('about-text');
+                    aboutText.innerHTML = '';
+                    data.about_text.split('\n\n').forEach(paragraph => {
+                        const p = document.createElement('p');
+                        p.textContent = paragraph;
+                        aboutText.appendChild(p);
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Error loading homepage content:', error);
+                // Fallback content is already in the HTML
+            });
+
+        // Load featured reports
+        fetch('./_reports/index.json')
+            .then(response => response.json())
+            .then(reports => {
+                const featuredReports = reports.filter(report => report.featured).slice(0, 3);
+                if (featuredReports.length > 0 && document.getElementById('featured-reports-container')) {
+                    const container = document.getElementById('featured-reports-container');
+                    container.innerHTML = ''; // Clear default content
+                    
+                    featuredReports.forEach(report => {
+                        const reportDate = new Date(report.date);
+                        const formattedDate = reportDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+                        
+                        const reportCard = document.createElement('div');
+                        reportCard.className = 'report-card';
+                        reportCard.innerHTML = `
+                            <div class="report-image" style="background-image: url('${report.thumbnail || ''}'); background-color: #D4D4D0;"></div>
+                            <div class="report-content">
+                                <div class="report-meta">${formattedDate} • ${report.category}</div>
+                                <h3 class="report-title">${report.title}</h3>
+                                <p class="report-excerpt">${report.summary}</p>
+                                <a href="./_reports/${report.slug}.html" class="btn btn-secondary">Read Report</a>
+                            </div>
+                        `;
+                        container.appendChild(reportCard);
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Error loading reports:', error);
+                // Fallback content is already in the HTML
+            });
+
+        // Load featured media
+        fetch('./_media/index.json')
+            .then(response => response.json())
+            .then(mediaItems => {
+                const featuredMedia = mediaItems.filter(item => item.featured).slice(0, 2);
+                if (featuredMedia.length > 0 && document.getElementById('featured-media-container')) {
+                    const container = document.getElementById('featured-media-container');
+                    container.innerHTML = ''; // Clear default content
+                    
+                    featuredMedia.forEach(media => {
+                        const mediaDate = new Date(media.date);
+                        const formattedDate = mediaDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+                        
+                        const mediaCard = document.createElement('div');
+                        mediaCard.className = 'media-card';
+                        mediaCard.innerHTML = `
+                            <div class="media-image" style="background-image: url('${media.thumbnail || ''}'); background-color: #D4D4D0;">
+                                ${!media.thumbnail ? '[Media Thumbnail]' : ''}
+                            </div>
+                            <div class="media-content">
+                                <div class="media-meta">${formattedDate} • ${media.type}</div>
+                                <h3 class="media-title">${media.title}</h3>
+                                <a href="${media.url}" class="btn btn-secondary">View ${media.type} →</a>
+                            </div>
+                        `;
+                        container.appendChild(mediaCard);
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Error loading media:', error);
+                // Fallback content is already in the HTML
+            });
+
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
+        });
+    </script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+</body>
+</html>
