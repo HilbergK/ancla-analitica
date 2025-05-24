@@ -11,8 +11,21 @@ public_folder: "/images/uploads"
 
 # Collections define the structure for content types
 collections:
-  - name: "pages"
-    label: "Pages"
+  - name: "reports" # Used in routes, e.g., /admin/collections/reports
+    label: "Reports" # Used in the UI
+    folder: "reports" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template
+    fields: # The fields for each document
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Category", name: "category", widget: "select", options: ["Economic Analysis", "Political Trends", "Regional Studies", "Policy Evaluation", "Market Reports"]}
+      - {label: "Featured Image", name: "thumbnail", widget: "image", required: false}
+      - {label: "Summary", name: "summary", widget: "text"}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "pages" # Used in routes, e.g., /admin/collections/pages
+    label: "Pages" # Used in the UI
     files:
       - name: "home"
         label: "Homepage"
