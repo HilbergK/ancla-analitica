@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media - Ancla Analítica</title>
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-dark: #000000;
+            --primary-light: #F5F5F0;
+            --accent: #D4D4D0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--primary-dark);
+            background-color: var(--primary-light);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 2.25rem;
+            line-height: 2.875rem;
+        }
+        
+        h2 {
+            font-size: 1.75rem;
+            line-height: 2.375rem;
+        }
+        
+        h3 {
+            font-size: 1.375rem;
+            line-height: 2rem;
+            font-weight: 600;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            transition: all 0.2s ease-out;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        /* Header */
+        header {
+            background-color: #fff;
+            border-bottom: 1px solid #000;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 1rem;
+        }
+        
+        .logo-text {
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+        }
+        
+        nav ul li a {
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            letter-spacing: 0.5px;
+        }
+        
+        nav ul li a.active {
+            text-decoration: underline;
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Page Header */
+        .page-header {
+            padding: 10rem 0 4rem;
+            background-color: #fff;
+            border-bottom: 1px solid #000;
+            text-align: center;
+        }
+        
+        /* Media Content */
+        .media-content {
+            padding: 4rem 0;
+        }
+        
+        .media-description {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            text-align: center;
+        }
+        
+        .featured-media {
+            margin-bottom: 4rem;
+        }
+        
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        
+        .media-card {
+            background-color: #fff;
+            border: 1px solid #000;
+            overflow: hidden;
+        }
+        
+        .media-image {
+            height: 250px;
+            background-color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .media-content-inner {
+            padding: 1.5rem;
+        }
+        
+        .media-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .media-meta {
+            font-size: 0.875rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #fff;
+            padding: 3rem 0;
+            border-top: 1px solid #000;
+        }
+        
+        .copyright {
+            text-align: center;
+            font-size: 0.875rem;
+            color: #666;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1023px) {
+            .header-container {
+                height: 64px;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                display: none; /* Hide by default */
+                position: absolute;
+                top: 64px;
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                padding: 1rem 0;
+                border-bottom: 1px solid #000;
+                z-index: 99;
+            }
+            
+            nav.active {
+                display: block; /* Show when active */
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 0;
+                padding: 0.5rem 1.5rem;
+            }
+            
+            .media-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+    <!-- Decap CMS Frontmatter -->
+    <!-- 
+    title: Media Center
+    description: Explore our multimedia content that makes economic and political analysis more accessible through videos, podcasts, and interactive visualizations.
+    featured_title: Featured Media
+    media_content: Our media content transforms complex economic and political analyses into engaging visual and audio formats. From short explainer videos to in-depth interviews with experts, our media resources make important information accessible to wider audiences.
+    -->
+
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="./logo.png" alt="Ancla Analítica">
+                </a>
+                <span class="logo-text">ANCLA ANALÍTICA</span>
+            </div>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars">≡</i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./reports.html">Reports</a></li>
+                    <li><a href="./media.html" class="active">Media</a></li>
+                    <li><a href="./about.html">About</a></li>
+                    <li><a href="./contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 id="title">Media Center</h1>
+            <div id="description" class="media-description">
+                <p>Explore our multimedia content that makes economic and political analysis more accessible through videos, podcasts, and interactive visualizations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media Content -->
+    <section class="media-content">
+        <div class="container">
+            <div class="featured-media">
+                <h2 id="featured_title">Featured Media</h2>
+                <div id="media_content">
+                    <p>Our media content transforms complex economic and political analyses into engaging visual and audio formats. From short explainer videos to in-depth interviews with experts, our media resources make important information accessible to wider audiences.</p>
+                </div>
+            </div>
+            
+            <div class="media-grid">
+                <!-- Media 1 -->
+                <div class="media-card">
+                    <div class="media-image">
+                        [Video Thumbnail]
+                    </div>
+                    <div class="media-content-inner">
+                        <div class="media-meta">May 18, 2025 • Video</div>
+                        <h3 class="media-title">Understanding Remittance Economics</h3>
+                        <p>A visual explanation of how remittances impact local economies in Central America.</p>
+                        <a href="#" class="btn btn-secondary">Watch Video →</a>
+                    </div>
+                </div>
+                
+                <!-- Media 2 -->
+                <div class="media-card">
+                    <div class="media-image">
+                        [Video Thumbnail]
+                    </div>
+                    <div class="media-content-inner">
+                        <div class="media-meta">May 5, 2025 • Video</div>
+                        <h3 class="media-title">Trade Policy Explained</h3>
+                        <p>Breaking down complex trade agreements and their implications for regional economies.</p>
+                        <a href="#" class="btn btn-secondary">Watch Video →</a>
+                    </div>
+                </div>
+                
+                <!-- Media 3 -->
+                <div class="media-card">
+                    <div class="media-image">
+                        [Podcast Thumbnail]
+                    </div>
+                    <div class="media-content-inner">
+                        <div class="media-meta">April 22, 2025 • Podcast</div>
+                        <h3 class="media-title">Economic Outlook: Q2 2025</h3>
+                        <p>Expert discussion on economic trends and predictions for the coming quarter.</p>
+                        <a href="#" class="btn btn-secondary">Listen Now →</a>
+                    </div>
+                </div>
+                
+                <!-- Media 4 -->
+                <div class="media-card">
+                    <div class="media-image">
+                        [Infographic Thumbnail]
+                    </div>
+                    <div class="media-content-inner">
+                        <div class="media-meta">April 15, 2025 • Infographic</div>
+                        <h3 class="media-title">Inflation Visualized</h3>
+                        <p>Interactive data visualization showing inflation trends across Latin America.</p>
+                        <a href="#" class="btn btn-secondary">View Infographic →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                © 2025 Ancla Analítica. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
+        });
+    </script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+</body>
+</html>
