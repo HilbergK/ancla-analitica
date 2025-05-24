@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Understanding Remittance Economics",
+    "date": "2025-05-18T09:15:00Z",
+    "type": "Video",
+    "thumbnail": "/images/uploads/remittance-video.jpg",
+    "description": "A visual explanation of how remittances impact local economies in Central America.",
+    "url": "https://www.youtube.com/watch?v=example1",
+    "featured": true,
+    "slug": "2025-05-18-understanding-remittance-economics"
+  },
+  {
+    "title": "Trade Policy Explained",
+    "date": "2025-05-05T11:30:00Z",
+    "type": "Video",
+    "thumbnail": "/images/uploads/trade-policy-video.jpg",
+    "description": "Breaking down complex trade agreements and their implications for regional economies.",
+    "url": "https://www.youtube.com/watch?v=example2",
+    "featured": true,
+    "slug": "2025-05-05-trade-policy-explained"
+  },
+  {
+    "title": "Economic Outlook: Q2 2025",
+    "date": "2025-04-22T14:00:00Z",
+    "type": "Podcast",
+    "thumbnail": "/images/uploads/economic-outlook-podcast.jpg",
+    "description": "Expert discussion on economic trends and predictions for the coming quarter.",
+    "url": "https://soundcloud.com/example/economic-outlook-q2-2025",
+    "featured": false,
+    "slug": "2025-04-22-economic-outlook-q2"
+  }
+]
