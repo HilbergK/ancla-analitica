@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Economic Impact of Remittance Tax on Central America",
+    "date": "2025-05-15T10:00:00Z",
+    "category": "Economic Analysis",
+    "thumbnail": "/images/uploads/remittance-tax.jpg",
+    "summary": "Analysis of how proposed remittance taxes would affect Guatemala and other Central American economies.",
+    "featured": true,
+    "slug": "2025-05-15-economic-impact-remittance-tax"
+  },
+  {
+    "title": "Trade Policy Shifts in Latin America",
+    "date": "2025-04-28T14:30:00Z",
+    "category": "Political Trends",
+    "thumbnail": "/images/uploads/trade-policy.jpg",
+    "summary": "Examining recent changes in regional trade agreements and their economic implications.",
+    "featured": true,
+    "slug": "2025-04-28-trade-policy-shifts"
+  },
+  {
+    "title": "Inflation Trends in Emerging Markets",
+    "date": "2025-04-10T09:00:00Z",
+    "category": "Market Reports",
+    "thumbnail": "/images/uploads/inflation-trends.jpg",
+    "summary": "Analysis of current inflation patterns and their impact on economic stability.",
+    "featured": false,
+    "slug": "2025-04-10-inflation-trends"
+  }
+]
