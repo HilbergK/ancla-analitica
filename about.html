@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Ancla Analítica</title>
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-dark: #000000;
+            --primary-light: #F5F5F0;
+            --accent: #D4D4D0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--primary-dark);
+            background-color: var(--primary-light);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 2.25rem;
+            line-height: 2.875rem;
+        }
+        
+        h2 {
+            font-size: 1.75rem;
+            line-height: 2.375rem;
+        }
+        
+        h3 {
+            font-size: 1.375rem;
+            line-height: 2rem;
+            font-weight: 600;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            transition: all 0.2s ease-out;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        /* Header */
+        header {
+            background-color: #fff;
+            border-bottom: 1px solid #000;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 1rem;
+        }
+        
+        .logo-text {
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+        }
+        
+        nav ul li a {
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            letter-spacing: 0.5px;
+        }
+        
+        nav ul li a.active {
+            text-decoration: underline;
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Page Header */
+        .page-header {
+            padding: 10rem 0 4rem;
+            background-color: #fff;
+            border-bottom: 1px solid #000;
+            text-align: center;
+        }
+        
+        /* About Content */
+        .about-content {
+            padding: 4rem 0;
+        }
+        
+        .about-section {
+            margin-bottom: 3rem;
+        }
+        
+        .about-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .team-member {
+            background-color: #fff;
+            border: 1px solid #000;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .team-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .team-name {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-role {
+            font-size: 0.875rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #fff;
+            padding: 3rem 0;
+            border-top: 1px solid #000;
+        }
+        
+        .copyright {
+            text-align: center;
+            font-size: 0.875rem;
+            color: #666;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1023px) {
+            .header-container {
+                height: 64px;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                display: none; /* Hide by default */
+                position: absolute;
+                top: 64px;
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                padding: 1rem 0;
+                border-bottom: 1px solid #000;
+                z-index: 99;
+            }
+            
+            nav.active {
+                display: block; /* Show when active */
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 0;
+                padding: 0.5rem 1.5rem;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="./logo.png" alt="Ancla Analítica">
+                </a>
+                <span class="logo-text">ANCLA ANALÍTICA</span>
+            </div>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars">≡</i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./reports.html">Reports</a></li>
+                    <li><a href="./media.html">Media</a></li>
+                    <li><a href="./about.html" class="active">About</a></li>
+                    <li><a href="./contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 id="title"></h1>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="about-content">
+        <div class="container">
+            <div class="about-section">
+                <h2>Our Mission</h2>
+                <div id="mission"></div>
+            </div>
+            
+            <div class="about-section">
+                <h2>Our Vision</h2>
+                <div id="vision"></div>
+            </div>
+            
+            <div class="about-section">
+                <div id="team"></div>
+                
+                <div class="team-grid">
+                    <!-- Team Member 1 -->
+                    <div class="team-member">
+                        <div class="team-photo">[Photo]</div>
+                        <h3 class="team-name">María Rodríguez</h3>
+                        <div class="team-role">Economic Analysis Director</div>
+                        <p>PhD in Economics with expertise in monetary policy and international trade.</p>
+                    </div>
+                    
+                    <!-- Team Member 2 -->
+                    <div class="team-member">
+                        <div class="team-photo">[Photo]</div>
+                        <h3 class="team-name">Carlos Mendoza</h3>
+                        <div class="team-role">Political Analysis Director</div>
+                        <p>Former diplomat with extensive experience in regional politics and governance.</p>
+                    </div>
+                    
+                    <!-- Team Member 3 -->
+                    <div class="team-member">
+                        <div class="team-photo">[Photo]</div>
+                        <h3 class="team-name">Ana Fuentes</h3>
+                        <div class="team-role">Communications Director</div>
+                        <p>Journalist specializing in making complex topics accessible to general audiences.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                © 2025 Ancla Analítica. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Load JSON data
+        fetch('./_data/about.json')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('title').textContent = data.title;
+                
+                // Handle mission text
+                const missionEl = document.getElementById('mission');
+                missionEl.innerHTML = '';
+                data.mission.split('\n\n').forEach(paragraph => {
+                    const p = document.createElement('p');
+                    p.textContent = paragraph;
+                    missionEl.appendChild(p);
+                });
+                
+                // Handle vision text
+                const visionEl = document.getElementById('vision');
+                visionEl.innerHTML = '';
+                data.vision.split('\n\n').forEach(paragraph => {
+                    const p = document.createElement('p');
+                    p.textContent = paragraph;
+                    visionEl.appendChild(p);
+                });
+                
+                // Handle team content (markdown)
+                document.getElementById('team').innerHTML = marked.parse(data.team);
+            })
+            .catch(error => {
+                console.error('Error loading content:', error);
+                // Fallback content if JSON fails to load
+                document.getElementById('title').textContent = "About Ancla Analítica";
+                document.getElementById('mission').innerHTML = "<p>Our mission is to provide accessible, rigorous analysis of economic and political trends that impact communities across Latin America and beyond.</p>";
+                document.getElementById('vision').innerHTML = "<p>We envision a world where complex economic and political information is accessible to everyone, empowering communities to make informed decisions.</p>";
+                document.getElementById('team').innerHTML = "<h2>Our Team</h2><p>Ancla Analítica brings together experts in economics, political science, data analysis, and communication to create accessible, high-quality analysis.</p><p>Our interdisciplinary approach ensures that our reports consider multiple perspectives and provide nuanced insights into complex issues.</p>";
+            });
+
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
+        });
+    </script>
+    <!-- Include marked.js for markdown parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+</body>
+</html>
