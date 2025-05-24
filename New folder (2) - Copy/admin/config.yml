@@ -1,0 +1,65 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+
+# Publish mode options:
+# - editorial: All entries require review before they are published
+# - simple: All entries are published immediately (default)
+publish_mode: simple
+
+# Media folder where uploaded images will be saved
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+# Collections define the structure for content types
+collections:
+  - name: "reports" # Used in routes, e.g., /admin/collections/reports
+    label: "Reports" # Used in the UI
+    folder: "reports" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template
+    fields: # The fields for each document
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Category", name: "category", widget: "select", options: ["Economic Analysis", "Political Trends", "Regional Studies", "Policy Evaluation", "Market Reports"]}
+      - {label: "Featured Image", name: "thumbnail", widget: "image", required: false}
+      - {label: "Summary", name: "summary", widget: "text"}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "pages" # Used in routes, e.g., /admin/collections/pages
+    label: "Pages" # Used in the UI
+    files:
+      - name: "home"
+        label: "Homepage"
+        file: "index.html"
+        fields:
+          - {label: "Hero Title", name: "hero_title", widget: "string"}
+          - {label: "Hero Description", name: "hero_description", widget: "text"}
+          - {label: "About Section Title", name: "about_title", widget: "string"}
+          - {label: "About Section Text", name: "about_text", widget: "text"}
+      
+      - name: "about"
+        label: "About Page"
+        file: "about.html"
+        fields:
+          - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "Mission Statement", name: "mission", widget: "text"}
+          - {label: "Vision", name: "vision", widget: "text"}
+          - {label: "Team Description", name: "team", widget: "markdown"}
+          
+      - name: "media"
+        label: "Media Page"
+        file: "media.html"
+        fields:
+          - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "Page Description", name: "description", widget: "text"}
+          - {label: "Featured Media Title", name: "featured_title", widget: "string"}
+          - {label: "Media Content", name: "media_content", widget: "markdown"}
+          
+      - name: "contact"
+        label: "Contact Page"
+        file: "contact.html"
+        fields:
+          - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "Contact Information", name: "contact_info", widget: "text"}
+          - {label: "Form Instructions", name: "form_instructions", widget: "text"}

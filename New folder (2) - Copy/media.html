@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media - Ancla Analítica</title>
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-dark: #000000;
+            --primary-light: #F5F5F0;
+            --accent: #D4D4D0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--primary-dark);
+            background-color: var(--primary-light);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 2.25rem;
+            line-height: 2.875rem;
+        }
+        
+        h2 {
+            font-size: 1.75rem;
+            line-height: 2.375rem;
+        }
+        
+        h3 {
+            font-size: 1.375rem;
+            line-height: 2rem;
+            font-weight: 600;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            transition: all 0.2s ease-out;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        /* Header */
+        header {
+            background-color: #fff;
+            border-bottom: 1px solid #000;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 1rem;
+        }
+        
+        .logo-text {
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+        }
+        
+        nav ul li a {
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            letter-spacing: 0.5px;
+        }
+        
+        nav ul li a.active {
+            text-decoration: underline;
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Page Header */
+        .page-header {
+            padding: 8rem 0 3rem;
+            background-color: #fff;
+            border-bottom: 1px solid #000;
+        }
+        
+        /* Media Section */
+        .media-section {
+            padding: 3rem 0;
+        }
+        
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        
+        .media-card {
+            background-color: #fff;
+            border: 1px solid #000;
+            overflow: hidden;
+            transition: all 0.2s ease-out;
+        }
+        
+        .media-card:hover {
+            opacity: 0.9;
+        }
+        
+        .media-image {
+            height: 250px;
+            background-color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .media-content {
+            padding: 1.5rem;
+        }
+        
+        .media-meta {
+            font-size: 0.875rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        
+        .media-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .media-description {
+            margin-bottom: 1rem;
+            font-size: 0.9375rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary-dark);
+            color: #fff;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            border-radius: 0;
+            transition: all 0.2s ease-out;
+        }
+        
+        .btn:hover {
+            opacity: 0.9;
+            text-decoration: none;
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 1px solid var(--primary-dark);
+            color: var(--primary-dark);
+        }
+        
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 3rem;
+            list-style: none;
+        }
+        
+        .pagination li {
+            margin: 0 0.25rem;
+        }
+        
+        .pagination a {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border: 1px solid #000;
+            background-color: #fff;
+        }
+        
+        .pagination a.active {
+            background-color: #000;
+            color: #fff;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #fff;
+            padding: 3rem 0;
+            border-top: 1px solid #000;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        .footer-logo {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-logo img {
+            height: 40px;
+        }
+        
+        .footer-about {
+            margin-bottom: 1rem;
+            font-size: 0.9375rem;
+        }
+        
+        .footer-title {
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links a {
+            font-size: 0.9375rem;
+        }
+        
+        .social-links {
+            display: flex;
+            list-style: none;
+            margin-top: 1rem;
+        }
+        
+        .social-links li {
+            margin-right: 1rem;
+        }
+        
+        .social-links a {
+            font-size: 1.25rem;
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.875rem;
+            color: #666;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1023px) {
+            .header-container {
+                height: 64px;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                display: none; /* Hide by default */
+                position: absolute;
+                top: 64px;
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                padding: 1rem 0;
+                border-bottom: 1px solid #000;
+                z-index: 99;
+            }
+            
+            nav.active {
+                display: block; /* Show when active */
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 0;
+                padding: 0.5rem 1.5rem;
+            }
+            
+            .media-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            h1 {
+                font-size: 1.875rem;
+                line-height: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+                line-height: 2rem;
+            }
+            
+            .page-header {
+                padding: 6rem 0 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="./logo.png" alt="Ancla Analítica">
+                </a>
+                <span class="logo-text">ANCLA ANALÍTICA</span>
+            </div>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars">≡</i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./reports.html">Reports</a></li>
+                    <li><a href="./media.html" class="active">Media</a></li>
+                    <li><a href="./about.html">About</a></li>
+                    <li><a href="./contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Media Library</h1>
+            <p>Watch our videos that make complex economic and political analyses accessible to everyone.</p>
+        </div>
+    </section>
+
+    <!-- Media Section -->
+    <section class="media-section">
+        <div class="container">
+            <div class="media-grid">
+                <!-- Media 1 -->
+                <div class="media-card">
+                    <div class="media-image">
+                        [Video Thumbnail]
+                    </div>
+                    <div class="media-content">
+                        <div class="media-meta">May 18, 2025 • Video • 5:24</div>
+                        <h3 class="media-title">Understanding Remittance Economics</h3>
+                        <p class="media-description">A concise explanation of how remittances impact Central American economies and the potential effects of proposed taxation policies.</p>
+                        <a href="#" class="btn btn-secondary">Watch Video</a>
+                    </div>
+                </div>
+                
+                <!-- Media 2 -->
+                <div class="media-card">
+                    <div class="media-image">
+                        [Video Thumbnail]
+                    </div>
+                    <div class="media-content">
+                        <div class="media-meta">May 5, 2025 • Video • 4:47</div>
+                        <h3 class="media-title">Trade Policy Explained</h3>
+                        <p class="media-description">Breaking down recent shifts in Latin American trade agreements and what they mean for regional economies and businesses.</p>
+                        <a href="#" class="btn btn-secondary">Watch Video</a>
+                    </div>
+                </div>
+                
+                <!-- Media 3 -->
+                <div class="media-card">
+                    <div class="media-image">
+                        [Video Thumbnail]
+                    </div>
+                    <div class="media-content">
+                        <div class="media-meta">April 22, 2025 • Video • 6:12</div>
+                        <h3 class="media-title">Inflation Trends in Emerging Markets</h3>
+                        <p class="media-description">Analyzing current inflation patterns across emerging economies and their impact on economic stability and growth.</p>
+                        <a href="#" class="btn btn-secondary">Watch Video</a>
+                    </div>
+                </div>
+                
+                <!-- Media 4 -->
+                <div class="media-card">
+                    <div class="media-image">
+                        [Video Thumbnail]
+                    </div>
+                    <div class="media-content">
+                        <div class="media-meta">April 10, 2025 • Video • 5:38</div>
+                        <h3 class="media-title">Economic Recovery Post-Pandemic</h3>
+                        <p class="media-description">Comparing recovery trajectories across different regions and economic sectors following the global pandemic.</p>
+                        <a href="#" class="btn btn-secondary">Watch Video</a>
+                    </div>
+                </div>
+                
+                <!-- Media 5 -->
+                <div class="media-card">
+                    <div class="media-image">
+                        [Video Thumbnail]
+                    </div>
+                    <div class="media-content">
+                        <div class="media-meta">March 28, 2025 • Video • 4:55</div>
+                        <h3 class="media-title">Fiscal Policy and Income Inequality</h3>
+                        <p class="media-description">Examining how recent fiscal policies have affected income distribution across different demographic groups.</p>
+                        <a href="#" class="btn btn-secondary">Watch Video</a>
+                    </div>
+                </div>
+                
+                <!-- Media 6 -->
+                <div class="media-card">
+                    <div class="media-image">
+                        [Video Thumbnail]
+                    </div>
+                    <div class="media-content">
+                        <div class="media-meta">March 15, 2025 • Video • 5:17</div>
+                        <h3 class="media-title">Central Bank Policies Explained</h3>
+                        <p class="media-description">A straightforward explanation of how central bank policies affect currency stability and economic growth.</p>
+                        <a href="#" class="btn btn-secondary">Watch Video</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <ul class="pagination">
+                <li><a href="#" class="active">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">Next →</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div>
+                <div class="footer-logo">
+                    <img src="./logo.png" alt="Ancla Analítica">
+                </div>
+                <p class="footer-about">Ancla Analítica provides in-depth economic and political analysis, making complex information accessible across multiple platforms.</p>
+                <ul class="social-links">
+                    <li><a href="#">T</a></li>
+                    <li><a href="#">L</a></li>
+                    <li><a href="#">F</a></li>
+                    <li><a href="#">Y</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./reports.html">Reports</a></li>
+                    <li><a href="./media.html">Media</a></li>
+                    <li><a href="./about.html">About</a></li>
+                    <li><a href="./contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer-title">Report Categories</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Economic Analysis</a></li>
+                    <li><a href="#">Political Trends</a></li>
+                    <li><a href="#">Regional Studies</a></li>
+                    <li><a href="#">Policy Evaluation</a></li>
+                    <li><a href="#">Market Reports</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <p>&copy; 2025 Ancla Analítica. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle with improved functionality
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
