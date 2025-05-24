@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Economic Impact of Remittance Tax on Central America - Ancla Analítica</title>
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-dark: #000000;
+            --primary-light: #F5F5F0;
+            --accent: #D4D4D0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--primary-dark);
+            background-color: var(--primary-light);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 2.25rem;
+            line-height: 2.875rem;
+        }
+        
+        h2 {
+            font-size: 1.75rem;
+            line-height: 2.375rem;
+        }
+        
+        h3 {
+            font-size: 1.375rem;
+            line-height: 2rem;
+            font-weight: 600;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            transition: all 0.2s ease-out;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        /* Header */
+        header {
+            background-color: #fff;
+            border-bottom: 1px solid #000;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 1rem;
+        }
+        
+        .logo-text {
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+        }
+        
+        nav ul li a {
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Report Header */
+        .report-header {
+            padding: 8rem 0 3rem;
+            background-color: #fff;
+            border-bottom: 1px solid #000;
+        }
+        
+        .report-meta {
+            font-size: 0.875rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        /* Report Content */
+        .report-content {
+            padding: 3rem 0;
+        }
+        
+        .report-container {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 3rem;
+        }
+        
+        .report-main {
+            background-color: #fff;
+            padding: 2rem;
+            border: 1px solid #000;
+        }
+        
+        .executive-summary {
+            border-left: 2px solid #000;
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .report-section {
+            margin-bottom: 2.5rem;
+        }
+        
+        .report-section h2 {
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #000;
+            margin-bottom: 1.5rem;
+        }
+        
+        .key-findings {
+            list-style-position: inside;
+            margin-bottom: 1.5rem;
+        }
+        
+        .key-findings li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .data-visual {
+            background-color: var(--accent);
+            height: 300px;
+            margin: 2rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #000;
+        }
+        
+        .data-source {
+            font-size: 0.75rem;
+            color: #666;
+            text-align: right;
+            margin-top: 0.5rem;
+        }
+        
+        blockquote {
+            border-left: 2px solid #000;
+            padding-left: 1.5rem;
+            font-style: italic;
+            margin: 1.5rem 0;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        
+        /* Sidebar */
+        .report-sidebar {
+            position: sticky;
+            top: 100px;
+        }
+        
+        .sidebar-section {
+            background-color: #fff;
+            padding: 1.5rem;
+            border: 1px solid #000;
+            margin-bottom: 1.5rem;
+        }
+        
+        .sidebar-title {
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #000;
+        }
+        
+        .toc-list {
+            list-style: none;
+        }
+        
+        .toc-list li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .toc-list a {
+            font-size: 0.9375rem;
+        }
+        
+        .report-info-list {
+            list-style: none;
+        }
+        
+        .report-info-list li {
+            margin-bottom: 0.5rem;
+            font-size: 0.9375rem;
+        }
+        
+        .report-info-list span {
+            font-weight: 600;
+        }
+        
+        .share-buttons {
+            display: flex;
+            list-style: none;
+            margin-top: 1rem;
+        }
+        
+        .share-buttons li {
+            margin-right: 1rem;
+        }
+        
+        .share-buttons a {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+            font-size: 0.875rem;
+        }
+        
+        /* Related Reports */
+        .related-reports {
+            padding: 3rem 0;
+            background-color: #fff;
+            border-top: 1px solid #000;
+        }
+        
+        .related-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
+        .related-card {
+            border: 1px solid #000;
+        }
+        
+        .related-image {
+            height: 150px;
+            background-color: var(--accent);
+        }
+        
+        .related-content {
+            padding: 1rem;
+        }
+        
+        .related-meta {
+            font-size: 0.75rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        
+        .related-title {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            text-align: left;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #fff;
+            padding: 3rem 0;
+            border-top: 1px solid #000;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        .footer-logo {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-logo img {
+            height: 40px;
+        }
+        
+        .footer-about {
+            margin-bottom: 1rem;
+            font-size: 0.9375rem;
+        }
+        
+        .footer-title {
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links a {
+            font-size: 0.9375rem;
+        }
+        
+        .social-links {
+            display: flex;
+            list-style: none;
+            margin-top: 1rem;
+        }
+        
+        .social-links li {
+            margin-right: 1rem;
+        }
+        
+        .social-links a {
+            font-size: 1.25rem;
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.875rem;
+            color: #666;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1023px) {
+            .header-container {
+                height: 64px;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                display: none; /* Hide by default */
+                position: absolute;
+                top: 64px;
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                padding: 1rem 0;
+                border-bottom: 1px solid #000;
+                z-index: 99;
+            }
+            
+            nav.active {
+                display: block; /* Show when active */
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 0;
+                padding: 0.5rem 1.5rem;
+            }
+            
+            .report-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .report-sidebar {
+                position: static;
+                margin-bottom: 2rem;
+            }
+            
+            .related-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            h1 {
+                font-size: 1.875rem;
+                line-height: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+                line-height: 2rem;
+            }
+            
+            .report-header {
+                padding: 6rem 0 2rem;
+            }
+            
+            .report-main {
+                padding: 1.5rem;
+            }
+            
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="./logo.png" alt="Ancla Analítica">
+                </a>
+                <span class="logo-text">ANCLA ANALÍTICA</span>
+            </div>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars">≡</i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./reports.html">Reports</a></li>
+                    <li><a href="./media.html">Media</a></li>
+                    <li><a href="./about.html">About</a></li>
+                    <li><a href="./contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Report Header -->
+    <section class="report-header">
+        <div class="container">
+            <div class="report-meta">May 15, 2025 • Economic Analysis • Central America</div>
+            <h1>Economic Impact of Remittance Tax on Central America</h1>
+            <p>An analysis of how proposed remittance taxes would affect Guatemala and other Central American economies.</p>
+        </div>
+    </section>
+
+    <!-- Report Content -->
+    <section class="report-content">
+        <div class="container">
+            <div class="report-container">
+                <!-- Main Content -->
+                <div class="report-main">
+                    <div class="executive-summary">
+                        <h2>Executive Summary</h2>
+                        <p>The proposed 5% tax on remittances from the United States to Guatemala would have significant economic consequences for both countries. Our analysis indicates that such a tax would reduce remittance flows by approximately 12-18% in the first year, representing a loss of $540-810 million to the Guatemalan economy.</p>
+                        
+                        <p>This reduction would affect approximately 1.2 million Guatemalan households, with rural communities experiencing disproportionate impacts. The tax would likely reduce Guatemala's GDP by 0.8-1.2% and potentially increase migration pressures as affected households seek to compensate for lost income. For the United States, the tax would generate an estimated $225-270 million in annual revenue but could increase irregular financial flows and create diplomatic tensions with Guatemala and other Central American nations.</p>
+                    </div>
+                    
+                    <div class="report-section">
+                        <h2>Introduction</h2>
+                        <p>Remittances play a crucial role in the economies of Central American countries, particularly Guatemala, El Salvador, and Honduras. These financial flows, primarily from migrants working in the United States, represent a significant portion of these countries' GDPs and serve as a vital source of income for millions of households.</p>
+                        
+                        <p>Recent policy proposals in the United States have suggested implementing a 5% tax on all remittances sent to certain countries, including Guatemala. Proponents argue that such a tax would generate revenue for border security and potentially discourage irregular migration. However, the economic implications of such a policy extend far beyond its stated goals.</p>
+                        
+                        <p>This report examines the potential economic impact of a remittance tax on Guatemala and other Central American countries. It analyzes the scale and importance of remittance flows, projects the likely effects of the tax on these flows, and assesses the broader economic and social consequences for both sending and receiving countries.</p>
+                    </div>
+                    
+                    <div class="report-section">
+                        <h2>Key Findings</h2>
+                        <ul class="key-findings">
+                            <li>Remittances constitute 18.4% of Guatemala's GDP as of 2024, making it the largest source of foreign currency for the country.</li>
+                            <li>Approximately 1.2 million households (35% of all Guatemalan households) receive remittances, with an average monthly amount of $375 per recipient household.</li>
+                            <li>A 5% tax would likely reduce remittance volumes through official channels by 12-18% in the first year.</li>
+                            <li>This represents a first-year loss of $540-810 million to the Guatemalan economy, equivalent to approximately 0.8-1.2% of GDP.</li>
+                            <li>Rural and indigenous communities, which are more dependent on remittances, would experience disproportionate impacts.</li>
+                            <li>The tax would likely increase the use of informal remittance channels, potentially reducing the expected tax revenue.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="report-section">
+                        <h2>Remittance Dependency in Guatemala</h2>
+                        <p>Remittances constitute 18.4% of Guatemala's GDP as of 2024, making it the largest source of foreign currency for the country. Approximately 1.2 million households (35% of all Guatemalan households) receive remittances, with an average monthly amount of $375 per recipient household.</p>
+                        
+                        <p>The geographic distribution of remittance recipients is concentrated in the western highlands and eastern regions, where 42% and 38% of households respectively receive remittances. These regions also have higher poverty rates than the national average, indicating that remittances serve as a crucial economic lifeline for vulnerable populations.</p>
+                        
+                        <div class="data-visual">
+                            [Regional Remittance Dependency Map]
+                        </div>
+                        <div class="data-source">Source: Central Bank of Guatemala, 2024</div>
+                        
+                        <p>Remittances are primarily used for:</p>
+                        <ul>
+                            <li>Basic consumption (food, clothing): 68%</li>
+                            <li>Education expenses: 12%</li>
+                            <li>Healthcare: 10%</li>
+                            <li>Housing improvements: 7%</li>
+                            <li>Savings and investment: 3%</li>
+                        </ul>
+                        
+                        <p>This spending pattern demonstrates that remittances primarily support basic needs and human capital development, with relatively little directed toward productive investment. Nevertheless, the multiplier effect of remittance spending creates significant economic activity in local communities.</p>
+                    </div>
+                    
+                    <div class="report-section">
+                        <h2>Projected Tax Impact</h2>
+                        <p>Based on elasticity models from similar policies implemented in other countries, we project that a 5% tax would reduce remittance volumes through official channels by:</p>
+                        
+                        <ul>
+                            <li>Short-term reduction (0-6 months): 18-22%</li>
+                            <li>Medium-term adjustment (6-18 months): 12-16%</li>
+                            <li>Long-term equilibrium (18+ months): 8-12%</li>
+                        </ul>
+                        
+                        <p>This represents a first-year loss of $540-810 million to the Guatemalan economy, equivalent to approximately 0.8-1.2% of GDP.</p>
+                        
+                        <div class="data-visual">
+                            [Projected Remittance Flow Changes]
+                        </div>
+                        <div class="data-source">Source: Ancla Analítica projections based on World Bank data, 2025</div>
+                        
+                        <p>The reduction in official remittance flows would result from:</p>
+                        <ul>
+                            <li>Shift to informal channels (estimated 60-70% of the reduction)</li>
+                            <li>Actual reduction in amounts sent (estimated 30-40% of the reduction)</li>
+                        </ul>
+                        
+                        <blockquote>
+                            "The proposed remittance tax would likely accelerate the shift toward digital and informal remittance channels, potentially undermining both the revenue and deterrence goals of the policy."
+                        </blockquote>
+                    </div>
+                    
+                    <div class="report-section">
+                        <h2>Economic Consequences</h2>
+                        <h3>For Guatemala:</h3>
+                        <ul>
+                            <li><strong>Reduced household consumption:</strong> Estimated 2-3% reduction in consumption among remittance-receiving households</li>
+                            <li><strong>Increased poverty:</strong> Potential increase in poverty rate by 0.5-0.8 percentage points</li>
+                            <li><strong>Currency pressure:</strong> Potential 3-5% depreciation of the Guatemalan quetzal against the US dollar</li>
+                            <li><strong>Reduced tax revenue:</strong> Secondary effect of $30-45 million reduction in domestic tax collection due to reduced consumption</li>
+                            <li><strong>Banking sector impacts:</strong> Reduced liquidity in the formal financial system as flows shift to informal channels</li>
+                        </ul>
+                        
+                        <h3>For the United States:</h3>
+                        <ul>
+                            <li><strong>Tax revenue:</strong> Estimated $225-270 million in annual tax revenue, declining over time as adaptation occurs</li>
+                            <li><strong>Administrative costs:</strong> Implementation and enforcement costs estimated at $30-50 million annually</li>
+                            <li><strong>Diplomatic consequences:</strong> Potential strain on bilateral relations with Guatemala and other affected countries</li>
+                            <li><strong>Migration effects:</strong> Possible increase in migration pressure as remittance-dependent households seek alternative income sources</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="report-section">
+                        <h2>Policy Implications</h2>
+                        <p>Our analysis suggests several important policy considerations:</p>
+                        
+                        <p><strong>For the United States:</strong></p>
+                        <ul>
+                            <li>The revenue generated by the tax would likely decline over time as adaptation occurs</li>
+                            <li>The administrative burden of implementing and enforcing the tax could offset a significant portion of the revenue</li>
+                            <li>The policy could undermine other U.S. foreign policy objectives in the region, including efforts to address the root causes of migration</li>
+                            <li>Alternative approaches, such as incentivizing formal remittance channels and productive investment of remittances, might better serve both countries' interests</li>
+                        </ul>
+                        
+                        <p><strong>For Guatemala:</strong></p>
+                        <ul>
+                            <li>Developing contingency plans to mitigate the economic impact, particularly for vulnerable communities</li>
+                            <li>Strengthening domestic financial inclusion to reduce the cost of remittance services</li>
+                            <li>Implementing programs to encourage productive investment of remittances</li>
+                            <li>Diversifying the economy to reduce remittance dependency in the long term</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="report-section">
+                        <h2>Conclusion</h2>
+                        <p>The proposed 5% tax on remittances to Guatemala would have significant and far-reaching economic consequences. While generating some revenue for the United States, the tax would impose substantial costs on the Guatemalan economy, particularly affecting vulnerable populations that depend on remittances for basic needs.</p>
+                        
+                        <p>The likely shift toward informal remittance channels would undermine the revenue potential of the tax while creating additional challenges for financial oversight and anti-money laundering efforts. Furthermore, by reducing a crucial source of income for many households, the tax could potentially increase migration pressures—contrary to its intended effect.</p>
+                        
+                        <p>Policymakers in both countries should carefully consider these trade-offs and explore alternative approaches that could better serve their respective economic and social objectives.</p>
+                    </div>
+                    
+                    <div class="report-section">
+                        <h2>References</h2>
+                        <ul>
+                            <li>Central Bank of Guatemala. (2024). <em>Annual Report on Remittances</em>.</li>
+                            <li>World Bank. (2024). <em>Migration and Development Brief</em>.</li>
+                            <li>International Monetary Fund. (2023). <em>Guatemala: Article IV Consultation</em>.</li>
+                            <li>Inter-American Development Bank. (2024). <em>Remittances to Latin America and the Caribbean</em>.</li>
+                            <li>U.S. Government Accountability Office. (2023). <em>International Remittances: Actions Needed to Address Unreliable Official U.S. Estimates</em>.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Sidebar -->
+                <div class="report-sidebar">
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Table of Contents</h3>
+                        <ul class="toc-list">
+                            <li><a href="#executive-summary">Executive Summary</a></li>
+                            <li><a href="#introduction">Introduction</a></li>
+                            <li><a href="#key-findings">Key Findings</a></li>
+                            <li><a href="#remittance-dependency">Remittance Dependency</a></li>
+                            <li><a href="#projected-tax-impact">Projected Tax Impact</a></li>
+                            <li><a href="#economic-consequences">Economic Consequences</a></li>
+                            <li><a href="#policy-implications">Policy Implications</a></li>
+                            <li><a href="#conclusion">Conclusion</a></li>
+                            <li><a href="#references">References</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Report Information</h3>
+                        <ul class="report-info-list">
+                            <li><span>Published:</span> May 15, 2025</li>
+                            <li><span>Category:</span> Economic Analysis</li>
+                            <li><span>Region:</span> Central America</li>
+                            <li><span>Author:</span> María Rodríguez</li>
+                            <li><span>Peer Review:</span> Carlos Mendoza</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Share This Report</h3>
+                        <ul class="share-buttons">
+                            <li><a href="#">T</a></li>
+                            <li><a href="#">L</a></li>
+                            <li><a href="#">F</a></li>
+                            <li><a href="#">E</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Download Report</h3>
+                        <a href="#" class="btn">PDF Version</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Reports -->
+    <section class="related-reports">
+        <div class="container">
+            <h2 class="related-title">Related Reports</h2>
+            <div class="related-grid">
+                <!-- Related Report 1 -->
+                <div class="related-card">
+                    <div class="related-image"></div>
+                    <div class="related-content">
+                        <div class="related-meta">April 28, 2025 • Political Trends</div>
+                        <h3 class="related-title">Trade Policy Shifts in Latin America</h3>
+                        <a href="#">Read Report →</a>
+                    </div>
+                </div>
+                
+                <!-- Related Report 2 -->
+                <div class="related-card">
+                    <div class="related-image"></div>
+                    <div class="related-content">
+                        <div class="related-meta">March 22, 2025 • Regional Studies</div>
+                        <h3 class="related-title">Economic Recovery Patterns Post-Pandemic</h3>
+                        <a href="#">Read Report →</a>
+                    </div>
+                </div>
+                
+                <!-- Related Report 3 -->
+                <div class="related-card">
+                    <div class="related-image"></div>
+                    <div class="related-content">
+                        <div class="related-meta">February 18, 2025 • Economic Analysis</div>
+                        <h3 class="related-title">Central Bank Policies and Currency Stability</h3>
+                        <a href="#">Read Report →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div>
+                <div class="footer-logo">
+                    <img src="./logo.png" alt="Ancla Analítica">
+                </div>
+                <p class="footer-about">Ancla Analítica provides in-depth economic and political analysis, making complex information accessible across multiple platforms.</p>
+                <ul class="social-links">
+                    <li><a href="#">T</a></li>
+                    <li><a href="#">L</a></li>
+                    <li><a href="#">F</a></li>
+                    <li><a href="#">Y</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./reports.html">Reports</a></li>
+                    <li><a href="./media.html">Media</a></li>
+                    <li><a href="./about.html">About</a></li>
+                    <li><a href="./contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer-title">Report Categories</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Economic Analysis</a></li>
+                    <li><a href="#">Political Trends</a></li>
+                    <li><a href="#">Regional Studies</a></li>
+                    <li><a href="#">Policy Evaluation</a></li>
+                    <li><a href="#">Market Reports</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <p>&copy; 2025 Ancla Analítica. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple mobile menu toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
