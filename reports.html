@@ -139,75 +139,55 @@
             padding: 3rem 0;
         }
         
-        .reports-container {
-            display: grid;
-            grid-template-columns: 1fr 3fr;
-            gap: 2rem;
-        }
-        
-        /* Filters */
-        .filters {
-            background-color: #fff;
-            padding: 1.5rem;
-            border: 1px solid #000;
-        }
-        
-        .filter-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .filter-group h3 {
-            font-size: 1.125rem;
-            margin-bottom: 0.75rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid #000;
-        }
-        
-        .filter-options {
-            list-style: none;
-        }
-        
-        .filter-options li {
-            margin-bottom: 0.5rem;
-        }
-        
-        .filter-options label {
+        /* Reports List */
+        .reports-list {
             display: flex;
-            align-items: center;
-            cursor: pointer;
-        }
-        
-        .filter-options input[type="checkbox"] {
-            margin-right: 0.5rem;
-        }
-        
-        /* Reports Grid */
-        .reports-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            flex-direction: column;
             gap: 2rem;
         }
         
-        .report-card {
+        .report-item {
             background-color: #fff;
             border: 1px solid #000;
-            overflow: hidden;
-            transition: all 0.2s ease-out;
+            display: flex;
+            flex-direction: column;
         }
         
-        .report-card:hover {
-            opacity: 0.9;
+        @media (min-width: 768px) {
+            .report-item {
+                flex-direction: row;
+                align-items: center; /* Vertically center the image with content */
+            }
         }
         
         .report-image {
-            height: 200px;
+            position: relative;
             background-color: var(--accent);
             background-size: cover;
             background-position: center;
         }
         
+        /* Mobile view - image takes full width */
+        @media (max-width: 767px) {
+            .report-image {
+                width: 100%;
+                height: 0;
+                padding-bottom: 100%; /* 1:1 aspect ratio */
+            }
+        }
+        
+        /* Desktop view - image is fixed width square */
+        @media (min-width: 768px) {
+            .report-image {
+                width: 200px;
+                height: 200px;
+                min-width: 200px; /* Prevent shrinking */
+            }
+        }
+        
         .report-content {
             padding: 1.5rem;
+            flex: 1;
         }
         
         .report-meta {
@@ -248,30 +228,6 @@
             background-color: transparent;
             border: 1px solid var(--primary-dark);
             color: var(--primary-dark);
-        }
-        
-        /* Pagination */
-        .pagination {
-            display: flex;
-            justify-content: center;
-            margin-top: 3rem;
-            list-style: none;
-        }
-        
-        .pagination li {
-            margin: 0 0.25rem;
-        }
-        
-        .pagination a {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            border: 1px solid #000;
-            background-color: #fff;
-        }
-        
-        .pagination a.active {
-            background-color: #000;
-            color: #fff;
         }
         
         /* Footer */
@@ -373,14 +329,6 @@
                 padding: 0.5rem 1.5rem;
             }
             
-            .reports-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .reports-grid {
-                grid-template-columns: 1fr;
-            }
-            
             .footer-container {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -440,193 +388,86 @@
     <!-- Reports Library -->
     <section class="reports-library">
         <div class="container">
-            <div class="reports-container">
-                <!-- Filters -->
-                <div class="filters">
-                    <div class="filter-group">
-                        <h3>Categories</h3>
-                        <ul class="filter-options">
-                            <li>
-                                <label>
-                                    <input type="checkbox" checked> Economic Analysis
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" checked> Political Trends
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" checked> Regional Studies
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" checked> Policy Evaluation
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" checked> Market Reports
-                                </label>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="filter-group">
-                        <h3>Regions</h3>
-                        <ul class="filter-options">
-                            <li>
-                                <label>
-                                    <input type="checkbox" checked> North America
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" checked> Central America
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" checked> South America
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" checked> Europe
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" checked> Asia
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" checked> Africa
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" checked> Global
-                                </label>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="filter-group">
-                        <h3>Year</h3>
-                        <ul class="filter-options">
-                            <li>
-                                <label>
-                                    <input type="checkbox" checked> 2025
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" checked> 2024
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" checked> 2023
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" checked> 2022
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" checked> Archive
-                                </label>
-                            </li>
-                        </ul>
+            <div class="reports-list">
+                <!-- Report 1 -->
+                <div class="report-item">
+                    <div class="report-image" style="background-color: #D4D4D0;"></div>
+                    <div class="report-content">
+                        <div class="report-meta">May 15, 2025 • Economic Analysis</div>
+                        <h3 class="report-title">Economic Impact of Remittance Tax on Central America</h3>
+                        <p class="report-excerpt">Analysis of how proposed remittance taxes would affect Guatemala and other Central American economies.</p>
+                        <a href="./reports/remittance_tax_report.html" class="btn btn-secondary">Read Report</a>
                     </div>
                 </div>
                 
-                <!-- Reports Grid -->
-                <div>
-                    <div class="reports-grid">
-                        <!-- Report 1 -->
-                        <div class="report-card">
-                            <div class="report-image" style="background-color: #D4D4D0;"></div>
-                            <div class="report-content">
-                                <div class="report-meta">May 15, 2025 • Economic Analysis</div>
-                                <h3 class="report-title">Economic Impact of Remittance Tax on Central America</h3>
-                                <p class="report-excerpt">Analysis of how proposed remittance taxes would affect Guatemala and other Central American economies.</p>
-                                <a href="./report-example.html" class="btn btn-secondary">Read Report</a>
-                            </div>
-                        </div>
-                        
-                        <!-- Report 2 -->
-                        <div class="report-card">
-                            <div class="report-image" style="background-color: #D4D4D0;"></div>
-                            <div class="report-content">
-                                <div class="report-meta">April 28, 2025 • Political Trends</div>
-                                <h3 class="report-title">Trade Policy Shifts in Latin America</h3>
-                                <p class="report-excerpt">Examining recent changes in regional trade agreements and their economic implications.</p>
-                                <a href="#" class="btn btn-secondary">Read Report</a>
-                            </div>
-                        </div>
-                        
-                        <!-- Report 3 -->
-                        <div class="report-card">
-                            <div class="report-image" style="background-color: #D4D4D0;"></div>
-                            <div class="report-content">
-                                <div class="report-meta">April 10, 2025 • Market Reports</div>
-                                <h3 class="report-title">Inflation Trends in Emerging Markets</h3>
-                                <p class="report-excerpt">Analysis of current inflation patterns and their impact on economic stability.</p>
-                                <a href="#" class="btn btn-secondary">Read Report</a>
-                            </div>
-                        </div>
-                        
-                        <!-- Report 4 -->
-                        <div class="report-card">
-                            <div class="report-image" style="background-color: #D4D4D0;"></div>
-                            <div class="report-content">
-                                <div class="report-meta">March 22, 2025 • Regional Studies</div>
-                                <h3 class="report-title">Economic Recovery Patterns Post-Pandemic</h3>
-                                <p class="report-excerpt">Comparative analysis of recovery trajectories across different regions and economic sectors.</p>
-                                <a href="#" class="btn btn-secondary">Read Report</a>
-                            </div>
-                        </div>
-                        
-                        <!-- Report 5 -->
-                        <div class="report-card">
-                            <div class="report-image" style="background-color: #D4D4D0;"></div>
-                            <div class="report-content">
-                                <div class="report-meta">March 5, 2025 • Policy Evaluation</div>
-                                <h3 class="report-title">Fiscal Policy Impact on Income Inequality</h3>
-                                <p class="report-excerpt">Examining how recent fiscal policies have affected income distribution across demographics.</p>
-                                <a href="#" class="btn btn-secondary">Read Report</a>
-                            </div>
-                        </div>
-                        
-                        <!-- Report 6 -->
-                        <div class="report-card">
-                            <div class="report-image" style="background-color: #D4D4D0;"></div>
-                            <div class="report-content">
-                                <div class="report-meta">February 18, 2025 • Economic Analysis</div>
-                                <h3 class="report-title">Central Bank Policies and Currency Stability</h3>
-                                <p class="report-excerpt">Analysis of monetary policy approaches and their effects on currency markets.</p>
-                                <a href="#" class="btn btn-secondary">Read Report</a>
-                            </div>
-                        </div>
+                <!-- Report 2 -->
+                <div class="report-item">
+                    <div class="report-image" style="background-color: #D4D4D0;"></div>
+                    <div class="report-content">
+                        <div class="report-meta">April 28, 2025 • Political Trends</div>
+                        <h3 class="report-title">Trade Policy Shifts in Latin America</h3>
+                        <p class="report-excerpt">Examining recent changes in regional trade agreements and their economic implications.</p>
+                        <a href="./reports/trade_policy_report.html" class="btn btn-secondary">Read Report</a>
                     </div>
-                    
-                    <!-- Pagination -->
-                    <ul class="pagination">
-                        <li><a href="#" class="active">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">Next →</a></li>
-                    </ul>
                 </div>
+                
+                <!-- Report 3 -->
+                <div class="report-item">
+                    <div class="report-image" style="background-color: #D4D4D0;"></div>
+                    <div class="report-content">
+                        <div class="report-meta">April 10, 2025 • Market Reports</div>
+                        <h3 class="report-title">Inflation Trends in Emerging Markets</h3>
+                        <p class="report-excerpt">Analysis of current inflation patterns and their impact on economic stability.</p>
+                        <a href="./reports/inflation_trends_report.html" class="btn btn-secondary">Read Report</a>
+                    </div>
+                </div>
+                
+                <!-- Report 4 -->
+                <div class="report-item">
+                    <div class="report-image" style="background-color: #D4D4D0;"></div>
+                    <div class="report-content">
+                        <div class="report-meta">March 22, 2025 • Regional Studies</div>
+                        <h3 class="report-title">Economic Recovery Patterns Post-Pandemic</h3>
+                        <p class="report-excerpt">Comparative analysis of recovery trajectories across different regions and economic sectors.</p>
+                        <a href="./reports/economic_recovery_report.html" class="btn btn-secondary">Read Report</a>
+                    </div>
+                </div>
+                
+                <!-- Report 5 -->
+                <div class="report-item">
+                    <div class="report-image" style="background-color: #D4D4D0;"></div>
+                    <div class="report-content">
+                        <div class="report-meta">March 5, 2025 • Policy Evaluation</div>
+                        <h3 class="report-title">Fiscal Policy Impact on Income Inequality</h3>
+                        <p class="report-excerpt">Examining how recent fiscal policies have affected income distribution across demographics.</p>
+                        <a href="./reports/fiscal_policy_report.html" class="btn btn-secondary">Read Report</a>
+                    </div>
+                </div>
+                
+                <!-- Report 6 -->
+                <div class="report-item">
+                    <div class="report-image" style="background-color: #D4D4D0;"></div>
+                    <div class="report-content">
+                        <div class="report-meta">February 18, 2025 • Economic Analysis</div>
+                        <h3 class="report-title">Central Bank Policies and Currency Stability</h3>
+                        <p class="report-excerpt">Analysis of monetary policy approaches and their effects on currency markets.</p>
+                        <a href="./reports/central_bank_report.html" class="btn btn-secondary">Read Report</a>
+                    </div>
+                </div>
+                
+                <!-- TEMPLATE: Copy this section to add a new report -->
+                <!-- 
+                <div class="report-item">
+                    <div class="report-image" style="background-color: #D4D4D0;"></div>
+                    <div class="report-content">
+                        <div class="report-meta">Month Day, Year • Category</div>
+                        <h3 class="report-title">Report Title Goes Here</h3>
+                        <p class="report-excerpt">Brief description of the report content goes here.</p>
+                        <a href="./reports/report_filename.html" class="btn btn-secondary">Read Report</a>
+                    </div>
+                </div>
+                -->
+                
             </div>
         </div>
     </section>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Media - Ancla Analítica</title>
+    <title>Media Library - Ancla Analítica</title>
     <style>
         /* Base Styles */
         :root {
@@ -134,38 +134,64 @@
             border-bottom: 1px solid #000;
         }
         
-        /* Media Section */
-        .media-section {
+        /* Media Library */
+        .media-library {
             padding: 3rem 0;
         }
         
-        .media-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
+        /* Media List */
+        .media-list {
+            display: flex;
+            flex-direction: column;
             gap: 2rem;
         }
         
-        .media-card {
+        .media-item {
             background-color: #fff;
             border: 1px solid #000;
-            overflow: hidden;
-            transition: all 0.2s ease-out;
+            display: flex;
+            flex-direction: column;
         }
         
-        .media-card:hover {
-            opacity: 0.9;
+        @media (min-width: 768px) {
+            .media-item {
+                flex-direction: row;
+                align-items: center; /* Vertically center the image with content */
+            }
         }
         
         .media-image {
-            height: 250px;
+            position: relative;
             background-color: var(--accent);
+            background-size: cover;
+            background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 1.25rem;
+        }
+        
+        /* Mobile view - image takes full width */
+        @media (max-width: 767px) {
+            .media-image {
+                width: 100%;
+                height: 0;
+                padding-bottom: 100%; /* 1:1 aspect ratio */
+            }
+        }
+        
+        /* Desktop view - image is fixed width square */
+        @media (min-width: 768px) {
+            .media-image {
+                width: 200px;
+                height: 200px;
+                min-width: 200px; /* Prevent shrinking */
+            }
         }
         
         .media-content {
             padding: 1.5rem;
+            flex: 1;
         }
         
         .media-meta {
@@ -206,30 +232,6 @@
             background-color: transparent;
             border: 1px solid var(--primary-dark);
             color: var(--primary-dark);
-        }
-        
-        /* Pagination */
-        .pagination {
-            display: flex;
-            justify-content: center;
-            margin-top: 3rem;
-            list-style: none;
-        }
-        
-        .pagination li {
-            margin: 0 0.25rem;
-        }
-        
-        .pagination a {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            border: 1px solid #000;
-            background-color: #fff;
-        }
-        
-        .pagination a.active {
-            background-color: #000;
-            color: #fff;
         }
         
         /* Footer */
@@ -331,10 +333,6 @@
                 padding: 0.5rem 1.5rem;
             }
             
-            .media-grid {
-                grid-template-columns: 1fr;
-            }
-            
             .footer-container {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -391,96 +389,90 @@
         </div>
     </section>
 
-    <!-- Media Section -->
-    <section class="media-section">
+    <!-- Media Library -->
+    <section class="media-library">
         <div class="container">
-            <div class="media-grid">
+            <div class="media-list">
                 <!-- Media 1 -->
-                <div class="media-card">
-                    <div class="media-image">
-                        [Video Thumbnail]
-                    </div>
+                <div class="media-item">
+                    <div class="media-image">[Video Thumbnail]</div>
                     <div class="media-content">
                         <div class="media-meta">May 18, 2025 • Video • 5:24</div>
                         <h3 class="media-title">Understanding Remittance Economics</h3>
                         <p class="media-description">A concise explanation of how remittances impact Central American economies and the potential effects of proposed taxation policies.</p>
-                        <a href="#" class="btn btn-secondary">Watch Video</a>
+                        <a href="./media/remittance_economics_video.html" class="btn btn-secondary">Watch Video</a>
                     </div>
                 </div>
                 
                 <!-- Media 2 -->
-                <div class="media-card">
-                    <div class="media-image">
-                        [Video Thumbnail]
-                    </div>
+                <div class="media-item">
+                    <div class="media-image">[Video Thumbnail]</div>
                     <div class="media-content">
                         <div class="media-meta">May 5, 2025 • Video • 4:47</div>
                         <h3 class="media-title">Trade Policy Explained</h3>
                         <p class="media-description">Breaking down recent shifts in Latin American trade agreements and what they mean for regional economies and businesses.</p>
-                        <a href="#" class="btn btn-secondary">Watch Video</a>
+                        <a href="./media/trade_policy_video.html" class="btn btn-secondary">Watch Video</a>
                     </div>
                 </div>
                 
                 <!-- Media 3 -->
-                <div class="media-card">
-                    <div class="media-image">
-                        [Video Thumbnail]
-                    </div>
+                <div class="media-item">
+                    <div class="media-image">[Video Thumbnail]</div>
                     <div class="media-content">
-                        <div class="media-meta">April 22, 2025 • Video • 6:12</div>
-                        <h3 class="media-title">Inflation Trends in Emerging Markets</h3>
-                        <p class="media-description">Analyzing current inflation patterns across emerging economies and their impact on economic stability and growth.</p>
-                        <a href="#" class="btn btn-secondary">Watch Video</a>
+                        <div class="media-meta">April 22, 2025 • Podcast • 28:12</div>
+                        <h3 class="media-title">Economic Outlook: Q2 2025</h3>
+                        <p class="media-description">A detailed discussion of economic projections for the second quarter of 2025, focusing on emerging markets and global trade patterns.</p>
+                        <a href="./media/economic_outlook_podcast.html" class="btn btn-secondary">Listen to Podcast</a>
                     </div>
                 </div>
                 
                 <!-- Media 4 -->
-                <div class="media-card">
-                    <div class="media-image">
-                        [Video Thumbnail]
-                    </div>
+                <div class="media-item">
+                    <div class="media-image">[Video Thumbnail]</div>
                     <div class="media-content">
                         <div class="media-meta">April 10, 2025 • Video • 5:38</div>
-                        <h3 class="media-title">Economic Recovery Post-Pandemic</h3>
-                        <p class="media-description">Comparing recovery trajectories across different regions and economic sectors following the global pandemic.</p>
-                        <a href="#" class="btn btn-secondary">Watch Video</a>
+                        <h3 class="media-title">Inflation Trends in Emerging Markets</h3>
+                        <p class="media-description">Analyzing current inflation patterns across emerging economies and their impact on economic stability and growth.</p>
+                        <a href="./media/inflation_trends_video.html" class="btn btn-secondary">Watch Video</a>
                     </div>
                 </div>
                 
                 <!-- Media 5 -->
-                <div class="media-card">
-                    <div class="media-image">
-                        [Video Thumbnail]
-                    </div>
+                <div class="media-item">
+                    <div class="media-image">[Video Thumbnail]</div>
                     <div class="media-content">
                         <div class="media-meta">March 28, 2025 • Video • 4:55</div>
                         <h3 class="media-title">Fiscal Policy and Income Inequality</h3>
                         <p class="media-description">Examining how recent fiscal policies have affected income distribution across different demographic groups.</p>
-                        <a href="#" class="btn btn-secondary">Watch Video</a>
+                        <a href="./media/fiscal_policy_video.html" class="btn btn-secondary">Watch Video</a>
                     </div>
                 </div>
                 
                 <!-- Media 6 -->
-                <div class="media-card">
-                    <div class="media-image">
-                        [Video Thumbnail]
-                    </div>
+                <div class="media-item">
+                    <div class="media-image">[Video Thumbnail]</div>
                     <div class="media-content">
                         <div class="media-meta">March 15, 2025 • Video • 5:17</div>
                         <h3 class="media-title">Central Bank Policies Explained</h3>
                         <p class="media-description">A straightforward explanation of how central bank policies affect currency stability and economic growth.</p>
-                        <a href="#" class="btn btn-secondary">Watch Video</a>
+                        <a href="./media/central_bank_video.html" class="btn btn-secondary">Watch Video</a>
                     </div>
                 </div>
+                
+                <!-- TEMPLATE: Copy this section to add a new media item -->
+                <!-- 
+                <div class="media-item">
+                    <div class="media-image">[Video Thumbnail]</div>
+                    <div class="media-content">
+                        <div class="media-meta">Month Day, Year • Type • Duration</div>
+                        <h3 class="media-title">Media Title Goes Here</h3>
+                        <p class="media-description">Brief description of the media content goes here.</p>
+                        <a href="./media/media_filename.html" class="btn btn-secondary">Watch Video/Listen to Podcast</a>
+                    </div>
+                </div>
+                -->
+                
             </div>
-            
-            <!-- Pagination -->
-            <ul class="pagination">
-                <li><a href="#" class="active">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">Next →</a></li>
-            </ul>
         </div>
     </section>
 
@@ -528,7 +520,7 @@
     </footer>
 
     <script>
-        // Mobile menu toggle with improved functionality
+        // Simple mobile menu toggle
         document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
             document.querySelector('nav').classList.toggle('active');
         });
